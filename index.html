@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f3ef"><meta name="description" content="Conheça o Alerta Guarani, protótipo educacional para monitoramento do nível da água com Arduino, sensor ultrassônico e dashboard digital, inspirado no contexto de Itaipu.">
+<title>Alerta Guarani | Tecnologia que acompanha a água</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer src="tank-webgl.js"></script><script defer src="main.js"></script>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+<header class="topbar">
+ <a href="#inicio" class="brand" aria-label="Alerta Guarani, início"><span class="brand-stripes" aria-hidden="true"><i></i><i></i><i></i></span><span>ALERTA <b>GUARANI</b></span></a>
+ <nav id="mainNav" aria-label="Navegação"><a href="#itaipu">Sobre Itaipu</a><a href="#projeto">Projeto</a><a href="#materiais">Materiais</a><a href="#funcionalidades">Funcionalidades</a><a href="#grupo">Grupo</a></nav>
+ <div class="nav-side"><span id="pageIndicator">01 / 06</span><button class="hamburger" id="menuToggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegação"><span></span><span></span><span></span></button></div>
+</header>
+<main>
+ <!-- 01: Capa limpa. Apenas título, frase curta e fotografia REAL de Itaipu. -->
+ <section class="slide slide-hero" id="inicio" aria-label="Apresentação do Alerta Guarani" data-slide="01">
+   <div class="hero-copy" data-intro>
+     <div class="hero-rule"></div>
+     <h1>ALERTA<br><span>GUARANI.</span></h1>
+     <p>Monitoramento inteligente<br>do nível da água.</p>
+     <a class="arrow-link" href="#itaipu" aria-label="Explorar a apresentação"><span>EXPLORAR</span><span class="arrow-bubble">↓</span></a>
+   </div>
+   <figure class="hero-photo" data-photo>
+     <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Itaipu_Dam%2C_aerial_photograph.jpg/960px-Itaipu_Dam%2C_aerial_photograph.jpg" alt="Fotografia aérea autêntica da barragem de Itaipu, no Rio Paraná" referrerpolicy="no-referrer" fetchpriority="high">
+     <div class="photo-edge" aria-hidden="true"></div>
+     <figcaption>ITAIPU BINACIONAL <span>·</span> RIO PARANÁ <small>FOTO: ACEDISCOVERY / CC BY 4.0</small></figcaption>
+   </figure>
+   <span class="hero-counter">01 <i></i> 06</span>
+ </section>
+ <!-- 02: Contexto Itaipu -->
+ <section class="slide slide-itaipu" id="itaipu" aria-labelledby="title-itaipu" data-slide="02">
+   <div class="slide-photo" data-reveal><img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Itaipu_Dam%2C_aerial_photograph.jpg/960px-Itaipu_Dam%2C_aerial_photograph.jpg" alt="Vista aérea de Itaipu, que fica na fronteira entre Brasil e Paraguai" referrerpolicy="no-referrer"><div class="photo-credit">FOTOGRAFIA REAL · ACEDISCOVERY / CC BY 4.0</div></div>
+   <div class="slide-copy itaipu-copy" data-reveal>
+    <p class="section-label">01 / CONTEXTO</p>
+    <h2 id="title-itaipu">Sobre<br><em>Itaipu.</em></h2>
+    <p class="editorial-lead">Uma usina binacional. Dois países ligados pela energia da água.</p>
+    <p class="editorial-body">Situada no Rio Paraná, na fronteira entre Brasil e Paraguai, Itaipu mostra a importância de acompanhar e compreender os recursos hídricos.</p>
+    <div class="fact-strip"><div><strong>BRASIL</strong><span>&</span><strong>PARAGUAI</strong></div><div><strong>RIO PARANÁ</strong></div></div>
+   </div>
+ </section>
+ <!-- 03: projeto, tanque tridimensional REAL (geometria WebGL), sem imagem estática -->
+ <section class="slide slide-project" id="projeto" aria-labelledby="title-project" data-slide="03">
+   <div class="project-copy" data-reveal>
+    <p class="section-label white-label">02 / O PROJETO</p>
+    <h2 id="title-project">Da medição<br>à <em>informação.</em></h2>
+    <p>O Alerta Guarani é um protótipo que mede a distância até a água, calcula o nível do reservatório e sinaliza condições de alerta.</p>
+    <div class="project-process"><span><b>01</b> DETECTA</span><i></i><span><b>02</b> PROCESSA</span><i></i><span><b>03</b> ALERTA</span></div>
+   </div>
+   <div class="project-visual" data-reveal>
+     <div class="project-visual-caption"><strong>RESERVATÓRIO 3D</strong><small>MODELO INTERATIVO · ARRASTE PARA GIRAR</small></div>
+     <div class="tank-presentation" id="tankPresentation" aria-label="Modelo tridimensional interativo do reservatório">
+        <div class="tank-css3d-root" id="tankCss3d" aria-hidden="true"></div>
+        <canvas id="tankWebGL" aria-label="Reservatório 3D, arraste para girar" role="img"></canvas>
+        <div id="tankFallback" hidden>O reservatório 3D não pôde ser carregado.</div>
+     </div>
+     <div class="tank-controls"><label for="projectLevel">NÍVEL ILUSTRATIVO <output id="projectLevelOut">42%</output></label><input type="range" min="0" max="100" value="42" step="1" id="projectLevel" aria-label="Controlar nível ilustrativo do reservatório"><small>O modelo acima não utiliza medições reais.</small></div>
+   </div>
+ </section>
+ <!-- 04: materiais com fotografias REAIS de referência -->
+ <section class="slide slide-materials" id="materiais" aria-labelledby="title-materials" data-slide="04">
+   <div class="materials-heading" data-reveal><div><p class="section-label">03 / COMPONENTES</p><h2 id="title-materials">Materiais <em>utilizados.</em></h2></div><p>Componentes eletrônicos que tornam o monitoramento possível.</p></div>
+   <div class="material-grid" data-reveal>
+     <article class="material-card"><div class="material-picture"><img loading="lazy" alt="Fotografia real de uma placa Arduino Uno" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Arduino_Uno_board.jpg/960px-Arduino_Uno_board.jpg" referrerpolicy="no-referrer"><span class="material-number">01</span></div><div class="material-detail"><h3>Arduino UNO</h3><p>Processamento</p></div></article>
+     <article class="material-card"><div class="material-picture"><img loading="lazy" alt="Fotografia real de um sensor ultrassônico HC-SR04" src="https://upload.wikimedia.org/wikipedia/commons/9/99/SparkFun_HC-SR04_Ultrasonic-Sensor_13959-01a.jpg" referrerpolicy="no-referrer"><span class="material-number">02</span></div><div class="material-detail"><h3>HC-SR04</h3><p>Sensor de distância</p></div></article>
+     <article class="material-card"><div class="material-picture"><img loading="lazy" alt="Fotografia real de um display LCD de 16 colunas e duas linhas" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/16x2_LCD_Display.jpg?width=800"><span class="material-number">03</span></div><div class="material-detail"><h3>LCD 16 × 2</h3><p>Leitura local</p></div></article>
+     <article class="material-card"><div class="material-picture"><img loading="lazy" alt="Fotografia real de LEDs nas cores vermelho, amarelo e verde" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/RYG_LEDs.JPG?width=800"><span class="material-number">04</span></div><div class="material-detail"><h3>LEDs</h3><p>Alerta visual</p></div></article>
+     <article class="material-card"><div class="material-picture"><img loading="lazy" alt="Fotografia real de um componente buzzer piezoelétrico" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/2007-07-24_Piezoelectric_buzzer.jpg?width=800"><span class="material-number">05</span></div><div class="material-detail"><h3>Buzzer</h3><p>Alerta sonoro</p></div></article>
+   </div>
+   <p class="material-footnote">Fotografias reais de referência dos componentes. Não são registros do protótipo montado pela equipe.</p>
+ </section>
+ <!-- 05: funcionalidades -->
+ <section class="slide slide-features" id="funcionalidades" aria-labelledby="title-features" data-slide="05">
+   <div class="feature-copy" data-reveal><p class="section-label">04 / SISTEMA</p><h2 id="title-features">Funcionalidades<br><em>que importam.</em></h2><p>Leituras interpretadas com clareza, em uma dashboard criada para acompanhar o protótipo.</p>
+     <div class="feature-legend"><span><i class="dot green"></i>0–15%</span><span><i class="dot yellow"></i>16–75%</span><span><i class="dot red"></i>76–100%</span></div>
+     <button type="button" class="outline-button" id="openDashboard">VER DASHBOARD AMPLIADA <span>↗</span></button>
+   </div>
+   <div class="feature-panel" data-reveal><figure class="dashboard-window"><div class="window-rail"><i></i><span>INTERFACE DESENVOLVIDA PELO PROJETO</span></div><img src="assets/dashboard-v26.png" alt="Captura real da dashboard V26 do projeto Alerta Guarani" loading="lazy"></figure>
+   <div class="feature-mini-grid"><div><strong>01</strong><span>Nível e distância</span></div><div><strong>02</strong><span>Alertas visuais e sonoros</span></div><div><strong>03</strong><span>Histórico de medições</span></div><div><strong>04</strong><span>Simulação controlada</span></div></div></div>
+ </section>
+ <!-- 06: encerrar com grupo, sem inventar membros -->
+ <section class="slide slide-end" id="grupo" aria-labelledby="title-end" data-slide="06">
+   <div class="end-wrap" data-reveal><p class="section-label">05 / ENCERRAMENTO</p><h2 id="title-end">Tecnologia para<br><em>compreender a água.</em></h2><div class="end-rule"></div><p>Alerta Guarani · Projeto educacional de monitoramento hídrico.</p></div>
+   <footer class="site-footer"><div class="footer-brand">ALERTA <b>GUARANI</b></div><div class="team"><span>GRUPO RESPONSÁVEL</span><strong id="teamName">NOME DO GRUPO</strong></div><a href="#inicio">VOLTAR AO INÍCIO ↑</a></footer>
+ </section>
+</main>
+<dialog id="dashboardModal" class="dashboard-modal" aria-label="Dashboard ampliada"><div class="modal-top"><strong>DASHBOARD ALERTA GUARANI</strong><button id="closeDashboard" type="button">FECHAR ×</button></div><img src="assets/dashboard-v26.png" alt="Captura da dashboard Alerta Guarani V26 em tela ampliada"></dialog>
+</body></html>
