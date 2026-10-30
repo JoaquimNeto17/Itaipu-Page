@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f5f3ef"><meta name="description" content="Conheça o Alerta Guarani, protótipo educacional para monitoramento do nível da água com Arduino, sensor ultrassônico e dashboard digital, inspirado no contexto de Itaipu.">
-<title>Alerta Guarani | Tecnologia que acompanha a água</title>
+<title>Alerta Guarani | Itaipu Lab</title>
 <link rel="stylesheet" href="styles.css">
+<style>.hero-team-credit{font-size:clamp(.68rem,.84vw,.85rem)!important;font-weight:500;letter-spacing:.13em;line-height:1.5;text-transform:uppercase;margin-top:1rem}.hero-team-credit strong{font-weight:800}</style>
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script defer src="tank-webgl.js"></script><script defer src="main.js"></script>
@@ -23,6 +24,7 @@
      <div class="hero-rule"></div>
      <h1>ALERTA<br><span>GUARANI.</span></h1>
      <p>Monitoramento inteligente<br>do nível da água.</p>
+     <p class="hero-team-credit">UM PROJETO DO GRUPO <strong>ITAIPU LAB</strong></p>
      <a class="arrow-link" href="#itaipu" aria-label="Explorar a apresentação"><span>EXPLORAR</span><span class="arrow-bubble">↓</span></a>
    </div>
    <figure class="hero-photo" data-photo>
@@ -85,7 +87,7 @@
  <!-- 06: encerrar com grupo, sem inventar membros -->
  <section class="slide slide-end" id="grupo" aria-labelledby="title-end" data-slide="06">
    <div class="end-wrap" data-reveal><p class="section-label">05 / ENCERRAMENTO</p><h2 id="title-end">Tecnologia para<br><em>compreender a água.</em></h2><div class="end-rule"></div><p>Alerta Guarani · Projeto educacional de monitoramento hídrico.</p></div>
-   <footer class="site-footer"><div class="footer-brand">ALERTA <b>GUARANI</b></div><div class="team"><span>GRUPO RESPONSÁVEL</span><strong id="teamName">ITAIPU LAB</strong></div><a href="#inicio">VOLTAR AO INÍCIO ↑</a></footer>
+   <footer class="site-footer"><div class="footer-brand">ALERTA <b>GUARANI</b></div><div class="team"><span>GRUPO RESPONSÁVEL</span><strong id="grupoItaipuLab" data-group-name="ITAIPU LAB">ITAIPU LAB</strong><span id="teamName" hidden aria-hidden="true" style="display:none!important">ITAIPU LAB</span></div><a href="#inicio">VOLTAR AO INÍCIO ↑</a></footer>
  </section>
 </main>
 <dialog id="dashboardModal" class="dashboard-modal" aria-label="Dashboard ampliada"><div class="modal-top"><strong>DASHBOARD ALERTA GUARANI</strong><button id="closeDashboard" type="button">FECHAR ×</button></div><img src="assets/dashboard-v26.png" alt="Captura da dashboard Alerta Guarani V26 em tela ampliada"></dialog>
